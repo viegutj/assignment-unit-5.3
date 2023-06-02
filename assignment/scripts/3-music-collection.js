@@ -11,8 +11,12 @@ let collection = []
 //   - Return the newly created object
 
 function addToCollection(title, artist, yearPublished) {
-    collection.push(title, artist, yearPublished);
-    return collection.slice(-3);
+    collection.push({
+        title, 
+        artist, 
+        yearPublished
+    });
+    return collection.slice(-1);
 }
 
 // - Test the `addToCollection` function:
@@ -20,14 +24,14 @@ function addToCollection(title, artist, yearPublished) {
 //   - Console.log each album as added using the returned value.
 //   - After all are added, console.log the `collection` array.
 
-console.log('The collection is now: ', addToCollection('Take Me Back To Eden', 'Sleep Token', 2023));
-console.log('The collection is now: ', addToCollection('Clairvoyant', 'The Contortionist', 2017));
-console.log('The collection is now: ', addToCollection('Language', 'The Contortionist', 2014));
-console.log('The collection is now: ', addToCollection('God Loves Ugly', 'Atmosphere', 2002));
-console.log('The collection is now: ', addToCollection('For Emma, Forever Ago', 'Bon Iver', 2008));
-console.log('The collection is now: ', addToCollection('Talon Of The Hawk', 'The Front Bottoms', 2013));
+console.log('The new album is: ', addToCollection('Take Me Back To Eden', 'Sleep Token', 2023));
+console.log('The new album is: ', addToCollection('Clairvoyant', 'The Contortionist', 2017));
+console.log('The new album is: ', addToCollection('Language', 'The Contortionist', 2014));
+console.log('The new album is: ', addToCollection('God Loves Ugly', 'Atmosphere', 2002));
+console.log('The new album is: ', addToCollection('For Emma, Forever Ago', 'Bon Iver', 2008));
+console.log('The new album is: ', addToCollection('five seconds flat', 'Lizzy McAlpine', 2022));
 
-console.log(collection);
+console.log('The collection is:',collection);
 
 // - Add a function named `showCollection`. This function should:
 //   - Take in an array parameter. (This allows it to be reused to show any collection, like the results from the find or search.)
@@ -35,9 +39,12 @@ console.log(collection);
 //   - Loop over the array and console.log each album's information formatted like: `TITLE by ARTIST, published in YEAR`.
 
 function showCollection(array) {
-    console.log(array.length);
+    console.log('The number of items in this array is:', array.length);
     for (let i = 0; i < array.length; i++) {
-        const album = array.slice[-3];
-        console.log(album);
+        console.log(`${array[i].title} by ${array[i].artist}, published in ${array[i].yearPublished}`);
     }
+    return 'End of array.'
 }
+
+// - Test the `showCollection` function.
+console.log(showCollection(collection));
