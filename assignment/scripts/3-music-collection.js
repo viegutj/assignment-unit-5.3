@@ -48,3 +48,39 @@ function showCollection(array) {
 
 // - Test the `showCollection` function.
 console.log(showCollection(collection));
+
+// - Add a function named `findByArtist`. This function should:
+//   - Take in `artist` (a string) parameter
+//   - Create an array to hold any results, empty to start
+//   - Loop through the `collection` and add any objects with a matching artist to the array.
+//   - Return the array with the matching results. If no results are found, return an empty array.
+
+// Parameters cannot specify type. How do I specify that it should be a string?
+function findByArtist(artist) {
+    let results = [];
+    for (let i = 0; i < collection.length; i++) {
+        if (collection[i].artist == artist) {
+            results.push(collection[i]);
+    }
+}
+return results
+}
+
+// - Test the `findByArtist` function. 
+// Make sure to test with an artist you know is in the collection, 
+// as well as an artist you know is not in your collection. 
+// Check that for artists with multiple matches, all are found.
+// > When testing your functions, write all tests in the JavaScript file!
+console.log(findByArtist('Atmosphere'));
+console.log(findByArtist('Bon Jovi'));
+console.log(findByArtist('The Contortionist'));
+
+// - Create a function called `search`. This function should:
+//   - Take an input parameter for a search criteria object. Create your solution based on a search object that has these properties:
+//   ```
+//   { artist: 'Ray Charles', year: 1957 }
+//   ```
+//   - The returned output from `search` should meet these requirements:
+//     - Return a new array of all items in the `collection` matching *all* of the search criteria.
+//     - If no results are found, return an empty array.
+//     - If there is no search object or an empty search object provided as input, then return all albums in the `collection`.
